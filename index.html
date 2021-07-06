@@ -1,42 +1,60 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
+
 <head>
-<link href="css/front.css" type="text/css" rel="stylesheet" />
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Calculator</title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="light.css" id="theme" />
+ <!-- <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" /> -->
 </head>
-<body background="bg-top.jpg">
-<center><h1>New Year 2022</h1></center>
-<center><p id="demo"></p></center>
 
-<script>
-// Set the date we're counting down to
-var countDownDate = new Date("Jan 1, 2022 24:00:00").getTime();
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <h1>Simple Calculator</h1>
 
-// Update the count down every 1 second
-var x = setInterval(function() {
+      <div class="first-row">
+        <input type="text" name="result" class="result" id="result" value="" placeholder="Result" readonly />
+        <input type="button" value="C" onclick="clearScreen()" class="clear" />
+      </div>
+      <div class="second-row">
+        <input type="button" value="1" onclick="liveScreen(1)" id="one" />
+        <input type="button" value="2" onclick="liveScreen(2)" id="two" />
+        <input type="button" value="3" onclick="liveScreen(3)" id="three"  />
+        <input type="button" value="+" onclick="liveScreen('+')" />
+      </div>
+      <div class="third-row">
+        <input type="button" value="4" id="four" onclick="liveScreen(4)" />
+        <input type="button" value="5" id="five" onclick="liveScreen(5)" />
+        <input type="button" value="6" id="six" onclick="liveScreen(6)" />
+        <input type="button" value="-" onclick="liveScreen('-')" />
+      </div>
+      <div class="fourth-row">
+        <input type="button" value="7" id="seven" onclick="liveScreen(7)" />
+        <input type="button" value="8" id="eight" onclick="liveScreen(8)" />
+        <input type="button" value="9" id="nine" onclick="liveScreen(9)" />
+        <input type="button" value="x" onclick="liveScreen('*')" />
+      </div>
+      <div class="fifth-row">
+        <input type="button" value="/" onclick="liveScreen('/')" />
 
-  // Get today's date and time
-  var now = new Date().getTime();
-    
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-    
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); 
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-  // Output the result in an element with id="demo"
-  document.getElementById("demo").innerHTML = "<center>"+"Begins In"+"</center>"+"<div id='day'>"+days+"d "+"</div>"+"<div id='hour'>" + hours + "h "+"</div>"+"<div id='minute'>"
-  + minutes + "m "+"</div>"+"<div id='second'>" + seconds + "s "+"</div>";
-    
-  // If the count down is over, write some text 
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("demo").innerHTML = "<img src='new1.gif' height='100%' width='100%' /> </br> Welcome To 2022";
-  }
-}, 1000);
-</script>
-
+        <input type="button" value="0" id="zero" onclick="liveScreen(0)" />
+        <input type="button" value="." class="dot" onclick="liveScreen('.')" />
+        <input type="button" value="=" onclick="result.value = eval(result.value)" />
+      </div>
+      <div class="bottom-buttons">
+        <button onclick="switchTheme()" id="dark-mode">
+          Dark Mode 🌙
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- Fontawesome Script -->
+  <script src="https://kit.fontawesome.com/f28b055962.js" crossorigin="anonymous"></script>
+  <script src="script.js" sync defer></script>
 </body>
+
 </html>
